@@ -100,4 +100,4 @@ History Table
     - Wait for orchestrator to drain
     - Side-by-side deployment (Update the name of your task hub on deployment)
 
-![image](https://github.com/caodchuong312/caodchuong312.github.io/assets/92881216/0d3f8456-5291-402e-9da0-cfee7c0bcbe4)
+![img-description](https://github.com/caodchuong312/caodchuong312.github.io/assets/92881216/0d3f8456-5291-402e-9da0-cfee7c0bcbe4)
