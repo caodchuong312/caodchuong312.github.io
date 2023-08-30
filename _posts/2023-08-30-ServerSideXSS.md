@@ -128,5 +128,10 @@ Có một số công cụ `PDF to HTML` cho phép chỉ định attachment cho t
 <!-- From https://0xdf.gitlab.io/2021/04/24/htb-bucket.html -->
 <html><pd4ml:attachment src="/etc/passwd" description="attachment sample" icon="Paperclip"/></html>
 ```
-
+## Refs
+- <https://blog.dixitaditya.com/xss-to-read-internal-files>
+- <https://medium.com/r3d-buck3t/xss-to-exfiltrate-data-from-pdfs-f5bbb35eaba7>
+- <https://buer.haus/2017/06/29/escalating-xss-in-phantomjs-image-rendering-to-ssrflocal-file-read/>
+- <https://lbherrera.github.io/lab/h1415-ctf-writeup.html#Reading-a-PDF>
+- <https://blog.shoebpatel.com/2020/03/23/FireShell-CTF-2020-Write-up/>
 
