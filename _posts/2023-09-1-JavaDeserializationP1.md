@@ -1,5 +1,5 @@
 ---
-title: Java Deserialize Vulnerability - Phần 1 Cơ bản về Java Deserialization
+title: Java Deserialize Vulnerability - Phần 1: Cơ bản về Java Deserialization
 categories: [Java]
 tags: [deserialization]     # TAG names should always be lowercase
 img_path: /assets/img/JavaDeserializationP1
