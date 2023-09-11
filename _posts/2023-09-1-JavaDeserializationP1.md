@@ -1,6 +1,6 @@
 ---
 title: Lỗ hổng Java Deserialize - Phần 1 - Cơ bản về Java Deserialization
-date: 2023-09-11 20:00:00 +0700
+date: 2023-09-12 00:00:00 +0700
 categories: [Java]
 tags: [deserialization]     # TAG names should always be lowercase
 img_path: /assets/img/JavaDeserializationP1
@@ -13,7 +13,7 @@ Trong Java, các object sẽ được lưu trữ vào bộ nhớ **heap** trong 
 
 ![Deserialization](1.png)
 
-### Thực hành
+### Ví dụ
 Ta có 1 class `Person`:
 ```java
 import java.io.Serializable;
