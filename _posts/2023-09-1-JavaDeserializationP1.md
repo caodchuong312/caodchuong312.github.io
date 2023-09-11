@@ -1,5 +1,5 @@
 ---
-title: Java Deserialize Vulnerability - Phần 1 - Cơ bản về Java Deserialization
+title: Lỗ hổng Java Deserialize - Phần 1 - Cơ bản về Java Deserialization
 date: 2023-09-11 20:00:00 +0700
 categories: [Java]
 tags: [deserialization]     # TAG names should always be lowercase
@@ -13,7 +13,7 @@ Trong Java, các object sẽ được lưu trữ vào bộ nhớ **heap** trong 
 
 ![Deserialization](1.png)
 
-## Quá trình Serialization/Deserialization trong Java
+### Thực hành
 Ta có 1 class `Person`:
 ```java
 import java.io.Serializable;
@@ -79,9 +79,8 @@ try {
     ObjectInputStream in = new ObjectInputStream(file);
     Object obj = in.readObject();
     in.close();
-    file.close();
-    
-    System.out.println(obj.toString());//Kiểm tra do trong class person có sử dụng toString()
+    file.close(); 
+    System.out.println(obj.toString()); //Kiểm tra do trong class Person có định nghĩa toString()
 } catch (Exception e) {
     e.printStackTrace();
 }
