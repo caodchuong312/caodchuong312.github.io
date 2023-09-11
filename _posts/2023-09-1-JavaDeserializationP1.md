@@ -47,7 +47,7 @@ public class Person implements Serializable {
 }
 ```
 
-> `Serializable` là 1 `marker interface`. Nó không có bất ký field hay method nào. Mục đích của nó là việc instance tạo từ class được đánh dấu có thể được `serialized` cũng như `deserialized`.
+> `Serializable` là 1 `marker interface`. Nó không có bất kỳ field hay method nào. Mục đích của nó là việc instance tạo từ class được đánh dấu có thể được `serialized` cũng như `deserialized`.
 
 Từ class `Person` trên ta tạo 1 object với tên `person` với các thuộc tính như sau:
 ```java
@@ -94,15 +94,13 @@ Như vậy là quá trình deserialization đã tạo được lại object.
 
 ## Format của serialized data (byte stream)
 
-img
+![format](format.png)
 
-- `aced`: Byte đánh dấu luồng dữ liệu chứa serialized data (`ObjectStreamConstants.STREAM_MAGIC`)
-- `0005`: version (`ObjectStreamConstants.STREAM_VERSION`)
-- `7372`:
-- `0006`: length của tên class ở đây là `Person` theo sau (`5065 7273 6f6e`)
-- Tương tự với `0003` là length của tên thuộc tính `age` (`6167 65`), `0004` là lenth của tên thuộc tính `name` (`6e61 6d65`)
-- `0006` là length của giá trị thuộc tính (`chuong` - `6368 756f 6e67`)
+> Header của serialized data này bao gồm `aced` là `STREAM_MAGIC` định dạng của data còn `0005` là `STREAM_VERSION` (versione của stream).<br>
+> Ngoài ra các hằng số này và 1 số nữa được định nghĩa trong interface <a href="https://docs.oracle.com/javase/8/docs/api/java/io/ObjectStreamConstants.html">ObjectStreamConstants</a>.<br>
+> Ví dụ như `7372` là `TC_OBJECT` (`73` là mã định danh trong serialization stream được sử dụng để đại diện cho một object cụ thể) và `TC_CLASSDESC` (`72` là một mã định danh trong serialization stream được sử dụng để đại diện cho class descriptor)<br>
+> `serialVersionUID` là 1 mã định danh duy nhất cho mỗi class. `JVM` sử dụng nó để so sánh các phiên bản của class để đảm bảo rằng cùng một class đã được sử dụng trong quá trình Serialization được loaded trong quá trình Deserialization. Nếu người nhận đã load một class cho đối tượng có `serialVersionUID` khác với class của người gửi tương ứng thì quá trình Deserialization sẽ dẫn đến exception `InvalidClassException`. Việc khai báo sẽ có sự kiểm soát hơn, mặc dù `JVM` sẽ tự tạo ra một giá trị nếu không khai báo nó. 
 
-
+## Insecure Deserialization trong Java
 
 
