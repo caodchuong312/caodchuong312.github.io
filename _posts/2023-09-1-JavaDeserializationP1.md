@@ -88,9 +88,7 @@ try {
 ```
 
 Output:
-```
-Person{name='chuong', age=19}
-```
+![output](output.png)
 Như vậy là quá trình deserialization đã tạo được lại object.
 
 
