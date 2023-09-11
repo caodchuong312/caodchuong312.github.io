@@ -58,7 +58,7 @@ Bây giờ ta cần save object này (tức là serialize nó) bằng cách sử
 - `FileOutputStream`: Đây là class ghi dữ liệu vào file (ở đây là mảng byte sau khi serialize).
 - `ObjectInputStream.writeObject()`: Đây là method dùng để ghi object đến output stream.
 
-```
+```java
 try {
     FileOutputStream file = new FileOutputStream("person.ser");
     ObjectOutputStream out = new ObjectOutputStream(file);
@@ -73,7 +73,7 @@ try {
 - `FileInputStream`: Đây là class đọc byte từ 1 file.
 - `ObjectInputStream.readObject()`: Đây là method dùng để đọc object từ input stream.
 
-```
+```java
 try {
     FileInputStream file = new FileInputStream("person.ser");
     ObjectInputStream in = new ObjectInputStream(file);
