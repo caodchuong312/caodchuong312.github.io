@@ -87,8 +87,21 @@ try {
 ```
 
 Output:
+
 ![output](output.png)
+
 Như vậy là quá trình deserialization đã tạo được lại object.
+
+## Format của serialized data (byte stream)
+
+![xxd](xxd.png)
+
+- `aced`: Byte đánh dấu luồng dữ liệu chứa serialized data (`ObjectStreamConstants.STREAM_MAGIC`)
+- `0005`: version (`ObjectStreamConstants.STREAM_VERSION`)
+- `7372`:
+- `0006`: length của tên class ở đây là `Person` theo sau (`5065 7273 6f6e`)
+- Tương tự với `0003` là length của tên thuộc tính `age` (`6167 65`), `0004` là lenth của tên thuộc tính `name` (`6e61 6d65`)
+- `0006` là length của giá trị thuộc tính (`chuong` - `6368 756f 6e67`)
 
 
 
