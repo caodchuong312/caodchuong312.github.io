@@ -1,5 +1,6 @@
 ---
 title: Java Deserialize Vulnerability - Phần 1 - Cơ bản về Java Deserialization
+date: 2023-09-11 20:00:00 +0700
 categories: [Java]
 tags: [deserialization]     # TAG names should always be lowercase
 img_path: /assets/img/JavaDeserializationP1
