@@ -1,6 +1,6 @@
 ---
 title: Lỗ hổng Java Deserialize - Phần 1 - Cơ bản về Java Deserialization
-date: 2023-09-12 00:00:00 +0700
+date: 2023-09-12 00:15:00 +0700
 categories: [Java]
 tags: [deserialization]     # TAG names should always be lowercase
 img_path: /assets/img/JavaDeserializationP1
@@ -13,7 +13,8 @@ Trong Java, các object sẽ được lưu trữ vào bộ nhớ **heap** trong 
 
 ![Deserialization](1.png)
 
-### Ví dụ
+**Ví dụ**
+
 Ta có 1 class `Person`:
 ```java
 import java.io.Serializable;
@@ -102,5 +103,5 @@ Như vậy là quá trình deserialization đã tạo được lại object.
 > `serialVersionUID` là 1 mã định danh duy nhất cho mỗi class. `JVM` sử dụng nó để so sánh các phiên bản của class để đảm bảo rằng cùng một class đã được sử dụng trong quá trình Serialization được loaded trong quá trình Deserialization. Nếu người nhận đã load một class cho đối tượng có `serialVersionUID` khác với class của người gửi tương ứng thì quá trình Deserialization sẽ dẫn đến exception `InvalidClassException`. Việc khai báo sẽ có sự kiểm soát hơn, mặc dù `JVM` sẽ tự tạo ra một giá trị nếu không khai báo nó. 
 
 ## Insecure Deserialization trong Java
-
+<https://snyk.io/blog/serialization-and-deserialization-in-java/>
 
