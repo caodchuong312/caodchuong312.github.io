@@ -94,7 +94,7 @@ Như vậy là quá trình deserialization đã tạo được lại object.
 
 ## Format của serialized data (byte stream)
 
-![xxd](xxd.png)
+img
 
 - `aced`: Byte đánh dấu luồng dữ liệu chứa serialized data (`ObjectStreamConstants.STREAM_MAGIC`)
 - `0005`: version (`ObjectStreamConstants.STREAM_VERSION`)
