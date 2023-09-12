@@ -1,4 +1,4 @@
----
+![image](https://github.com/caodchuong312/caodchuong312.github.io/assets/92881216/a2f92e64-bcb2-4e92-8211-013dccf16230)---
 title: Lỗ hổng Java Deserialize - Phần 1 - Cơ bản về Java Deserialization
 date: 2023-09-12 00:15:00 +0700
 categories: [Java]
@@ -103,5 +103,13 @@ Như vậy là quá trình deserialization đã tạo được lại object.
 > `serialVersionUID` là 1 mã định danh duy nhất cho mỗi class. `JVM` sử dụng nó để so sánh các phiên bản của class để đảm bảo rằng cùng một class đã được sử dụng trong quá trình Serialization được loaded trong quá trình Deserialization. Nếu người nhận đã load một class cho đối tượng có `serialVersionUID` khác với class của người gửi tương ứng thì quá trình Deserialization sẽ dẫn đến exception `InvalidClassException`. Việc khai báo sẽ có sự kiểm soát hơn, mặc dù `JVM` sẽ tự tạo ra một giá trị nếu không khai báo nó. 
 
 ## Insecure Deserialization trong Java
-<https://snyk.io/blog/serialization-and-deserialization-in-java/>
+Cũng như các lỗ hổng Deserialization ở các ngôn ngữ khác như PHP, Python,... thì trong Java nó cũng xuất phát từ `untrusted data` nghĩa là thực hiện quá trình Deserialization bằng từ 1 serialized data kiểm soát bởi người dùng.<br>
+Trong ví dụ trên nhìn vào cuối serialized data có từ `chuong` đó là giá trị trường `name`, nếu ta dùng hex editor để thay đổi giá trị chúng sang `admin` đồng thời thay đổi length của nó từ `0006` thành `0005`:
 
+![example](xxd.png)
+
+ Và khi quá trình deserialization vẫn thực hiện với file đó thì kết quả sẽ là:
+
+ ![example1](ex.png)
+
+Tất nhiên không chỉ vậy, kẻ tấn công còn có thể thực thi code hay command. Để giải thích điều này, ta cần biết đến khái niệm về `gadgets` - đây là class hoặc hàm có sẵn code thực thi trong process bị dễ tấn công. Việc thự thi đoạn code đó 
