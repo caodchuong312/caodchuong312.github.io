@@ -1,4 +1,4 @@
-![image](https://github.com/caodchuong312/caodchuong312.github.io/assets/92881216/a2f92e64-bcb2-4e92-8211-013dccf16230)---
+---
 title: Lỗ hổng Java Deserialize - Phần 1 - Cơ bản về Java Deserialization
 date: 2023-09-12 00:15:00 +0700
 categories: [Java]
