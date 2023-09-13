@@ -147,14 +147,13 @@ Output:
 ![constructor1](constructor1.png)
 
 ### Refs:
+
 - <https://loda.me/articles/huong-dan-java-reflection>
 - <https://www.baeldung.com/java-reflection>
 - <https://www.geeksforgeeks.org/reflection-in-java/>
 - <https://tsublogs.wordpress.com/2023/02/15/javasecurity101-1-java-reflection/>
 - <https://javasec.org/javase/Reflection/Reflection.html>
 
-## Java Reflection trong lỗ hổng Deserialization
-abc
 
 
 
