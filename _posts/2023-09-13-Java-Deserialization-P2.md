@@ -153,6 +153,9 @@ Output:
 - <https://tsublogs.wordpress.com/2023/02/15/javasecurity101-1-java-reflection/>
 - <https://javasec.org/javase/Reflection/Reflection.html>
 
+## Java Reflection trong lỗ hổng Deserialization
+abc
+
 
 
 
