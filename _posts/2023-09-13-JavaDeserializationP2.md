@@ -1,6 +1,6 @@
 ---
 title: Lỗ hổng Java Deserialize - Phần 2 - Java Reflection
-date: 2023-09-13 00:15:00 +0700
+date: 2023-09-13 12:00:00 +0700
 categories: [Java]
 tags: [deserialization]     # TAG names should always be lowercase
 img_path: /assets/img/JavaDeserializationP2
@@ -98,6 +98,10 @@ for(Method method : methods){
     System.out.println("Parameters: " + Arrays.toString(method.getParameters()));  // lấy ra mảng chứa param
 }
 ```
+Output:
+
+![getmethod](getmethod.png)
+
 **Như vậy ta cũng có thể lấy ra method và cũng có thể gọi nó bằng `invoke()`:**
 ```java
 Method methodSetName = Person.class.getMethod("setName", String.class);  // lấy ra method setName()
@@ -130,7 +134,7 @@ System.out.println(person2.toString());
 ```
 Output:
 
-![constructor](constructor1.png)
+![constructor1](constructor1.png)
 
 
 > Tương tự với việc lấy ra Interface, Annotation và 1 số thông tin khác của class.
