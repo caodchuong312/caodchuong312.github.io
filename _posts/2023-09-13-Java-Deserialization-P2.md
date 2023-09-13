@@ -1,5 +1,5 @@
 ---
-title: Lỗ hổng Java Deserialize - Phần 2 - Java Reflection
+title: Lỗ hổng Java Deserialization - Phần 2 - Java Reflection
 date: 2023-09-13 12:00:00 +0700
 categories: [Java]
 tags: [deserialization]     # TAG names should always be lowercase
@@ -153,6 +153,8 @@ Output:
 - <https://tsublogs.wordpress.com/2023/02/15/javasecurity101-1-java-reflection/>
 - <https://javasec.org/javase/Reflection/Reflection.html>
 
+## Reflection trong lỗ hổng Java Deserialization
+Như đã nói ở trên, việc có thể set được giá trị các fields hay invoke được các methods của object là điều quan trọng để thực hiện khai thác lỗ hổng Deserialization.
 
 
 
