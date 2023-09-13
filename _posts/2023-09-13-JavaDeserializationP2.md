@@ -102,7 +102,7 @@ Output:
 
 ![getmethod](getmethod.png)
 
-**Như vậy ta cũng có thể lấy ra method và cũng có thể gọi nó bằng `invoke()`:**
+Như vậy ta cũng có thể lấy ra method và cũng có thể gọi nó bằng `invoke()`:
 ```java
 Method methodSetName = Person.class.getMethod("setName", String.class);  // lấy ra method setName()
 Person person1 = new Person();
@@ -125,7 +125,7 @@ Ouptput:
 
 ![constructor](constructor.png)
 
-**Việc lấy ra constructor như vậy thì ta có thể từ đó tạo object mới mà không cần cách thông thường là dùng `new`:**
+Việc lấy ra constructor như vậy thì ta có thể từ đó tạo object mới mà không cần cách thông thường là dùng `new`:
 ```java
 Class<Person> personClass = Person.class;
 Constructor<Person> personConstructor = personClass.getConstructor(String.class, int.class);
@@ -135,11 +135,6 @@ System.out.println(person2.toString());
 Output:
 
 ![constructor1](constructor1.png)
-
-
-> Tương tự với việc lấy ra Interface, Annotation và 1 số thông tin khác của class.
-{: .prompt-info  }
-
 
 Refs:
 - <https://loda.me/articles/huong-dan-java-reflection>
