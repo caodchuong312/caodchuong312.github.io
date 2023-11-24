@@ -7,7 +7,7 @@ img_path: /assets/img/JavaDeserializationP2
 ---
 
 ## Java Reflection là gì?
-`Reflection` là 1 API trên Java sử dụng để truy xuất, sửa đổi hành vì của fields, methods, classes, interfaces trong quá trình runtime. Điều này đặc biệt hữu ích khi không biết tên chúng tại thời điểm compile hay do server filter 1 số thứ.<br>
+`Reflection` là 1 API trên Java sử dụng để truy xuất, sửa đổi hành vi của fields, methods, classes, interfaces trong quá trình runtime. Điều này đặc biệt hữu ích khi không biết tên chúng tại thời điểm compile hay do server filter 1 số thứ.<br>
 
 ![reflection](reflection.jpg)
 
@@ -16,12 +16,11 @@ Ngoài ra, chúng ta có thể khởi tạo object mới, gọi các method hay 
 ![invoke](invoke.png)
 
 ## Ví dụ
-Để sử dụng Java Reflection, ta không cần include file jar nào, vì JDK đi kèm với các class của package `java.lang.reflect` từ đó ta chỉ cẩn import nó:
+Vì JDK đi kèm với các class của package `java.lang.reflect` từ đó ta chỉ cần import nó để sử dụng Reflection:
 
 ```java
 import java.lang.reflect.*;
 ```
-Đầu tiên, các method để thực hiện nhưng điều trên
 
 Ta có class Person:
 ```java
@@ -54,7 +53,7 @@ public class Person {
 
 ### Class object
 Class **java.lang.Class (Class object)** là *entry point* của các thao tác reflection (hiểu nôm na là class này chứa các methods để sử dụng reflection như `getDeclaredMethods()`, `getDeclaredField()`,...) <br>
-Và để lấy được `Class object` ta sử dụng:
+Và để lấy được `Class object` ta có thể sử dụng:
 - `ClassName.class`, ví dụ: `Person.class`.
 - `Class.forName(ClassName)`, ví dụ: `Class.forName("Person")`.
 ### Fields
@@ -66,7 +65,7 @@ person.setName("chuong");
 person.setAge(19);
 ```
 
-Ta sử dụng `getDeclaredFields()` để lấy về mảng `Field`, `getName()` để lấy tên field và `getType()` để lấy kiểu dữ liệu của field đó:
+Ta sử dụng `getDeclaredFields()` để lấy về mảng các `Field`, `getName()` để lấy tên field và `getType()` để lấy kiểu dữ liệu của field đó:
 
 ```java
 for(Field field : Person.class.getDeclaredFields()){
@@ -90,6 +89,8 @@ nameField.setAccessible(true);
 nameField.set(person, "admin");
 System.out.println(person.toString());  // dùng toString() để kiểm tra
 ```
+>`setAccessible(true)` để cấp quyền truy cập vào chúng (ở đây là field).
+
 Output:
 
 ![setfield](setfield.png)
@@ -109,7 +110,8 @@ Output:
 
 ![getmethod](getmethod.png)
 
-Như vậy ta cũng có thể lấy ra method và cũng có thể gọi nó bằng `invoke()`:
+#### Gọi method
+Đây là một phần cũng hay được dùng đến, ta lấy ra method và gọi nó bằng `invoke()`:
 
 ```java
 Method methodSetName = Person.class.getMethod("setName", String.class);  // lấy ra method setName()
@@ -120,6 +122,8 @@ System.out.println(person1.toString());
 Output:
 
 ![method](method.png)
+
+>Ta cũng có thể gọi method constructor để tạo object.
 
 ### Constructor
 
@@ -134,6 +138,7 @@ Ouptput:
 
 ![constructor](constructor.png)
 
+#### Tạo object
 Việc lấy ra constructor như vậy thì ta có thể từ đó tạo object mới mà không cần cách thông thường là dùng `new`:
 
 ```java
@@ -291,7 +296,7 @@ HashMap.readObject()  [source]
           ->URLStreamHandler.getHostAddress()
             ->InetAddress.getByName() [sink]
 ```
-Trên đây là chain cơ bản trong ysoserial
+Trên đây là chain cơ bản nhất trong ysoserial.
 ### Tham khảo
 - <https://sec.vnpt.vn/2020/02/co-gi-ben-trong-cac-gadgetchain/>
 - <https://tsublogs.wordpress.com/2023/02/17/javasecurity101-4-java-deserialization-ysoserial-2/>
