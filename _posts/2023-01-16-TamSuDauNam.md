@@ -35,17 +35,17 @@ Còn Tết Âm thì chắc cũng nghỉ ít hơn mọi năm :>
 
 Dù không hay tâm sự với gia đình nhưng mà nó luôn là điểm tựa của mình (và của bất kỳ ai cũng vậy) 
 
-**(❁´◡`❁)**
 
-{% include embed/youtube.html id='vTJdVE_gjI0' %}
+<!-- {% include embed/youtube.html id='vTJdVE_gjI0' %} -->
 
 ### 2024
+
 Thú thật thì đôi khi mình thấy mình chưa nghiêm túc với ngành mình học hay thậm chí là cuộc sống của mình...
 
 ![4](buon2.jpg)
 
 Chắc từ sau khi viết blog này, mình sẽ note ra những mục tiêu cần làm để tryhard không chỉ trong ngành học mà cả cuộc sống nựa.
 
-{% include embed/youtube.html id='szLWgM4tTG4' %}
+<!-- {% include embed/youtube.html id='szLWgM4tTG4' %} -->
 
 Hết.
