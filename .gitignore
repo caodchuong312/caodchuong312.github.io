@@ -39,3 +39,6 @@ ignore.*
 bunfig.toml
 /src/content/blog/test.*
 /test/
+
+# Snyk Security Extension - AI Rules (auto-generated)
+.github/instructions/snyk_rules.instructions.md
