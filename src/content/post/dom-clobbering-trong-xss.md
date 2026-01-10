@@ -14,7 +14,7 @@ Thuật ngữ **clobbering** (ghi đè) xuất phát từ thực tế là việc
 ### object `window` và khả năng truy cập
 Theo WHATWG về [named access on the window object](https://html.spec.whatwg.org/multipage/nav-history-apis.html#named-access-on-the-window-object):
 
-![image](https://hackmd.io/_uploads/ByrWFdb6p.png)
+![](https://hackmd.io/_uploads/ByrWFdb6p.png)
 
 
 >WHATWG là viết tắt của "Web Hypertext Application Technology Working Group." Đây là một nhóm làm việc chuyên nghiên cứu và phát triển các chuẩn web.
@@ -22,11 +22,11 @@ Theo WHATWG về [named access on the window object](https://html.spec.whatwg.or
 Như vậy khi truy cập `name` qua `window` (`window[name]` hay `window.name`) sẽ trả về một element hoặc là một collection các elements.
 Một điều đặc biệt là: khi một element được gán attribute `id` thì có thể truy cập được đến element đó qua `window` với `name` là `id`. Với tính chất của object `window` thì: `id` đó trở thành biến global gọi đến element kia.
 
-![image](https://hackmd.io/_uploads/rk4jnO-pp.png)
+![](https://hackmd.io/_uploads/rk4jnO-pp.png)
 
 Còn khi có nhiều element có cùng `id` nó sẽ trở thành **HTMLCollection**:
 
-![image](https://hackmd.io/_uploads/H1JMa_-aa.png)
+![](https://hackmd.io/_uploads/H1JMa_-aa.png)
 
 Khác với `id` thì attribute `name` cũng như vậy nhưng đối với một số tags nhất định.
 Bằng script đơn giản để xem **tag** nào có thể dùng ghi được vào `window`:
@@ -46,14 +46,14 @@ for(tag of tags){
 Kết quả:
 
 
-![image](https://hackmd.io/_uploads/SyjZxcZ6p.png)
+![](https://hackmd.io/_uploads/SyjZxcZ6p.png)
 
 **=>Như vậy các tags: `embed`, `form`, `iframe`, `image`, `img`, `object` có thể dùng được dưới `window` từ attribute `name`**
 ### object `document` và khả năng truy cập
 
 Tương tự với `window`:
 
-![image](https://hackmd.io/_uploads/r1PvW9-pT.png)
+![](https://hackmd.io/_uploads/r1PvW9-pT.png)
 
 >Tham khảo tại: https://html.spec.whatwg.org/multipage/dom.html#dom-tree-accessors
 
@@ -74,7 +74,7 @@ for(tag of tags){
 ```
 Kết quả:
 
-![image](https://hackmd.io/_uploads/SJ0KDxMT6.png)
+![](https://hackmd.io/_uploads/SJ0KDxMT6.png)
 
 Như vậy chỉ có tag `object`.
 - Với attribute `name`:
@@ -94,7 +94,7 @@ for(tag of tags){
 ```
 Kết quả:
 
-![image](https://hackmd.io/_uploads/ryPgulM66.png)
+![](https://hackmd.io/_uploads/ryPgulM66.png)
 
 Có thể thấy các tags `embed`, `form`, `iframe`, `image`, `img`, `object` có thể ghi được vào `document` với attribute `name`. (Điều này giống với object `window`).
 ### Tại sao lại vậy?
@@ -109,7 +109,7 @@ Khi có sự trùng tên giữa biến JavaScript và element HTML, browser sẽ
 >   
 >Câu trả lời là: <b>với document thì có còn với window thì không.</b>
 >
->![image](https://hackmd.io/_uploads/Sy5hIJvT6.png)
+>![](https://hackmd.io/_uploads/Sy5hIJvT6.png)
 >
 ></details>
 
@@ -126,13 +126,13 @@ const person = {
 ```
 object trên có 1 property `name` và 1 method là `greet()`. Tuy nhiên không chỉ vậy, object này còn có nhiều properties khác nữa:
 
-![image](https://hackmd.io/_uploads/BJPNr5B6T.png)
+![](https://hackmd.io/_uploads/BJPNr5B6T.png)
 
 Chúng đến từ đâu?
 Mọi object trong JavaScript đều có một built-in property, được gọi là prototype. Bản thân prototype là một object, vì vậy prototype sẽ có prototype của nó, tạo nên prototype chain. Chain này kết thức khi chạm tới giá trị `null`.
 - Để lấy prototype ta sử dụng `Object.getPrototypeOf(obj)`
 
-    ![image](https://hackmd.io/_uploads/S1k3OcHaT.png)
+    ![](https://hackmd.io/_uploads/S1k3OcHaT.png)
 
     >Hoặc có thể sử dụng `__proto__`. Ví dụ: `person.__proto__`
 
@@ -140,58 +140,58 @@ Mọi object trong JavaScript đều có một built-in property, được gọi
 - Để kiểm tra một property có thuộc object đó không ta sử dụng
 `obj.hasOwnProperty()`, method này sẽ chỉ kiểm tra trong chính obj hiện tại:
 
-    ![image](https://hackmd.io/_uploads/r1K_91D66.png)
+    ![](https://hackmd.io/_uploads/r1K_91D66.png)
     
     Do ở đây `toString` thuộc prototype của nó:
     
-    ![image](https://hackmd.io/_uploads/HyZQikDaa.png)
+    ![](https://hackmd.io/_uploads/HyZQikDaa.png)
     
 #### window
 Quay trở lại, với element HTML chứa attribute `id` và `name` mà ta có thể truy cập từ `window`:
 
-![image](https://hackmd.io/_uploads/HkJ0Wxwaa.png)
+![](https://hackmd.io/_uploads/HkJ0Wxwaa.png)
 
 Nhưng nó không được **clobbering** vào object `window` để trở thành property:
 
-![image](https://hackmd.io/_uploads/rJXTa1PTp.png)
+![](https://hackmd.io/_uploads/rJXTa1PTp.png)
 
 Thay vào đó nó thuộc về:
 
-![image](https://hackmd.io/_uploads/Byxg4RJPT6.png)
+![](https://hackmd.io/_uploads/Byxg4RJPT6.png)
 
 Như vậy không **clobbering** từ `window`:
 
-![image](https://hackmd.io/_uploads/SkyZLevpp.png)
+![](https://hackmd.io/_uploads/SkyZLevpp.png)
 
 
 >Note: Điều này chỉ đúng trên trên Chromium-based browser.
 >(Có thể việc xử lý `window` trên Chomre khác với browser khác)
 #### document
 
-![image](https://hackmd.io/_uploads/Bk0KbxPap.png)
+![](https://hackmd.io/_uploads/Bk0KbxPap.png)
 
 
 Như vậy là `document` có thể **clobbering** được.
 
 Điều này cũng có nghĩa là `document` sẽ dễ bị attack:
 
-![image](https://hackmd.io/_uploads/ryLdmeDT6.png)
+![](https://hackmd.io/_uploads/ryLdmeDT6.png)
 
 ### HTMLCollection
 [HTMLCollection](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection) là collection các elements có cùng `id` hoặc `name`. 
 Nó cũng collect các elements cùng `id` lẫn `name`, trông rất chán =))
 
-![image](https://hackmd.io/_uploads/r1PeGIupp.png)
+![](https://hackmd.io/_uploads/r1PeGIupp.png)
 
 Quay trở lại với ví dụ đơn giản là cùng `id`:
 Để truy cập element chỉ định ta có thể sử dụng index: 0, 1, 2,... để lấy các element hoặc sử dụng `name`.
 Theo specs về việc [supported property names](https://dom.spec.whatwg.org/#ref-for-dfn-supported-property-names):
 
-![image](https://hackmd.io/_uploads/SJsSMDOpp.png)
+![](https://hackmd.io/_uploads/SJsSMDOpp.png)
 
 Ví dụ:
 
-![image](https://hackmd.io/_uploads/Sy6wNvdTa.png)
+![](https://hackmd.io/_uploads/Sy6wNvdTa.png)
 
 >Tương tự việc truy cập element từ `HTMLCollection` có cùng attribute `name` và dựa vào `id`.
 
@@ -202,25 +202,25 @@ Cái hay của nó không không chỉ nằm trong JavaScript mà còn ở các 
 `String()`, `innerHTML`, `outerHTML`, `innerText`,...
 Ví dụ về `innerHTML`:
 
-![image](https://hackmd.io/_uploads/BJN7gY_6p.png)
+![](https://hackmd.io/_uploads/BJN7gY_6p.png)
 
 Như vậy là mảng `myArr` trên đã chuyển sang string.
 
 **Quay trở lại với Dom Clebbering, chúng ta chỉ control `x`, `y`, `x.y`, `x.y.z`, ... dưới dạng element. Vậy các element đó khi chuyển sang string sẽ như thế nào?**
 Với tag `div` nó sẽ trở thành `[object HTMLDivElement]`:
 
-![image](https://hackmd.io/_uploads/HJhK-YOp6.png)
+![](https://hackmd.io/_uploads/HJhK-YOp6.png)
 
 >Nó chỉ trả về thông tin của tag đó. Vậy có phải tag nào cũng như vậy không? 
 >Câu trả lời là **không**.
 
 Ví dụ khác với tag `<a id="x" href="http://example.com"></a>`, kết quả thu được:
 
-![image](https://hackmd.io/_uploads/S1XwcFOap.png)
+![](https://hackmd.io/_uploads/S1XwcFOap.png)
 
 `http://example.com/` - giá trị `href`, lý do là tag `<a>` tương ứng với interface [HTMLAnchorElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLAnchorElement) có instance method `toString()` trả vè giá trị của `href`:
 
-![image](https://hackmd.io/_uploads/HkzbjYda6.png)
+![](https://hackmd.io/_uploads/HkzbjYda6.png)
 
 Để kiểm tra xem còn tag nào như vậy không, ta dùng một đoạn script:
 
@@ -239,11 +239,11 @@ for(tag of tags){
 ```
 Kết quả:
 
-![image](https://hackmd.io/_uploads/SkGW6t_66.png)
+![](https://hackmd.io/_uploads/SkGW6t_66.png)
 
 Và có thêm tag `<area>` tương tự tag `<a>`:
 
-![image](https://hackmd.io/_uploads/Hkf46F_pT.png)
+![](https://hackmd.io/_uploads/Hkf46F_pT.png)
 
 
 
@@ -251,13 +251,13 @@ Và có thêm tag `<area>` tương tự tag `<a>`:
 ## [Root-me: DOM Clobbering](https://www.root-me.org/en/Challenges/Web-Client/DOM-Clobbering)
 Trước khi tìm hiểu tiếp, ta thực hành một bài trên root-me.
 
-![image](https://hackmd.io/_uploads/ry8QzWva6.png)
+![](https://hackmd.io/_uploads/ry8QzWva6.png)
 ### Phân tích
 Trên `/renderer`,
 
 Bài sử dụng thư viện `DOMPurify 2.3.4`:
 
-![image](https://hackmd.io/_uploads/H1H3G-wTa.png)
+![](https://hackmd.io/_uploads/H1H3G-wTa.png)
 
 Để filter `input`:
 
@@ -288,16 +288,16 @@ if(typeof debug != 'undefined') {
 ```
 Cả 2 được truyền vào html để render (được enable thêm CSP):
 
-![image](https://hackmd.io/_uploads/SJvB8-PaT.png)
+![](https://hackmd.io/_uploads/SJvB8-PaT.png)
 
 Với payload bình thường đã bị filter qua thư viện:
 
-![image](https://hackmd.io/_uploads/H1t3PbvaT.png)
+![](https://hackmd.io/_uploads/H1t3PbvaT.png)
 
 ### Khai thác
 Với chức năng debug theo script trên, điều kiện đầu tiên là `typeof debug != 'undefined'`, ta chỉ cần inject tag html có `id=debug` là được, ví dụ `<div id=debug></div>`
 
-![image](https://hackmd.io/_uploads/SybtK-DpT.png)
+![](https://hackmd.io/_uploads/SybtK-DpT.png)
 
 Như vậy là đã đi được vào.
 Dựa vào Dom Clebbering, ta có thể control được `debug` và cả `path` và `params`.
@@ -319,11 +319,11 @@ document.body.appendChild(custom_debug);
 ```
 >Trong HTMLCollection, ta còn có thể truy cập element dựa vào attribute `name`. Ví dụ:
 >
->![image](https://hackmd.io/_uploads/SJh_lbd6a.png)
+>![](https://hackmd.io/_uploads/SJh_lbd6a.png)
 >
 >Như đã nói element `<a>` (`HTMLAnchorElement`) có instance method là `toString()` và nó sẽ tự động gọi khi qua hàm `String()` để trả về giá trị `href`:
 >
->![image](https://hackmd.io/_uploads/B1EQGZuap.png)
+>![](https://hackmd.io/_uploads/B1EQGZuap.png)
 
 Ở đây mình thấy `params` không cần thiết nên sẽ bỏ qua ~~ (tuy nhiên vẫn cần thêm vào đề tránh gặp lỗi)
 
@@ -335,17 +335,17 @@ Quay trở lại với việc tạo `path`:
     ```
 - Thứ hai: host hiện tại là `debug.secure_renderer` ta có thể thay đổi nó bằng `@` vì URL object trong javascript có thể parse nó.
 
-    ![image](https://hackmd.io/_uploads/B1_tEWO6a.png)
+    ![](https://hackmd.io/_uploads/B1_tEWO6a.png)
 
 Trước khi nói tiếp thì mình đề cập thêm chức năng của web:
 
-![image](https://hackmd.io/_uploads/HyufBbda6.png)
+![](https://hackmd.io/_uploads/HyufBbda6.png)
 
-![image](https://hackmd.io/_uploads/B1fBrZuTp.png)
+![](https://hackmd.io/_uploads/B1fBrZuTp.png)
 
 Ta có thể tạo ra nội dung file JS tương ứng:
 
-![image](https://hackmd.io/_uploads/HJoDBZ_aa.png)
+![](https://hackmd.io/_uploads/HJoDBZ_aa.png)
 
 >Mình mất khá nhiều thời gian để tìm cách bypass CSP và bất thành cho đến khi phát hiện điều này 
 >༼ つ ◕_◕ ༽つ
@@ -362,15 +362,15 @@ Tóm lại payload hiện tại sẽ là:
 <div id=debug name=params>a</div>
 ```
 
-![image](https://hackmd.io/_uploads/SJsMgGuTT.png)
+![](https://hackmd.io/_uploads/SJsMgGuTT.png)
 
 Kết quả:
 
-![image](https://hackmd.io/_uploads/r14hdZ_aT.png)
+![](https://hackmd.io/_uploads/r14hdZ_aT.png)
 
 Tag script được tạo khi đó:
 
-![image](https://hackmd.io/_uploads/r1plYZ_6T.png)
+![](https://hackmd.io/_uploads/r1plYZ_6T.png)
 
 Bây giờ tạo payload để lấy cookie thôi:
 ```javascript
@@ -380,14 +380,14 @@ Bây giờ tạo payload để lấy cookie thôi:
 ```
 Đoạn script khi đó:
 
-![image](https://hackmd.io/_uploads/H15Ko-upa.png)
+![](https://hackmd.io/_uploads/H15Ko-upa.png)
 
-![image](https://hackmd.io/_uploads/S1sco-_a6.png)
+![](https://hackmd.io/_uploads/S1sco-_a6.png)
 
 
 Gửi URL vào phần `/report` và chờ đợi 1-2 phút:
 
-![image](https://hackmd.io/_uploads/BkL3ybOa6.png)
+![](https://hackmd.io/_uploads/BkL3ybOa6.png)
 
 
 
@@ -395,7 +395,7 @@ Gửi URL vào phần `/report` và chờ đợi 1-2 phút:
 Đây là một kỹ thuật phổ biến sử dụng element `form` kết hợp với element khác như `input` để clobbering `x.y` (trong đó `x` có thể là bất kỳ x, `window.x`, hoặc `document.x`)
 Khác với việc clobbering thông thường từ tag khác, form có có mỗi quan hệ parent-child với tag khác, điển hình là `input`.
 
-![image](https://hackmd.io/_uploads/r1Zs4n_p6.png)
+![](https://hackmd.io/_uploads/r1Zs4n_p6.png)
 
 Để kiểm tra xem có tag nào tương tự `input` ta dùng script:
 
@@ -415,11 +415,11 @@ for(tag of tags){
 ```
 Kết quả:
 
-![image](https://hackmd.io/_uploads/HkuDMwY66.png)
+![](https://hackmd.io/_uploads/HkuDMwY66.png)
 
 Như vậy là các tags: `button`, `fieldset`, `image`, `img`, `input`, `object`, `output`, `select`, `textarea` dùng được. (các tag này dùng `id` hay `name` đều được)
 
-![image](https://hackmd.io/_uploads/r1fG7PFpp.png)
+![](https://hackmd.io/_uploads/r1fG7PFpp.png)
 
 
 Ví dụ: [Lab: Clobbering DOM attributes to bypass HTML filters](https://portswigger.net/web-security/dom-based/dom-clobbering/lab-dom-clobbering-attributes-to-bypass-html-filters) trên PortSwigger.
@@ -428,17 +428,17 @@ Bài này dùng thư viện `HTMLJanitor` dính lỗ hổng.
 Về cơ bản, nó tương tự các sanitize của DomPurify: tạo DOM -> duyệt qua các Node -> Filter whitelist.
 Theo config:
 
-![image](https://hackmd.io/_uploads/rJqYM0dpT.png)
+![](https://hackmd.io/_uploads/rJqYM0dpT.png)
 
 Điều này cho phép sử dụng `input` với thuộc tính `name`, `type`, `value`; `form` với thuộc tính `id`.
 
 Hàm `_sanitize` thực hiện filter, trong đó tạo `TreeWalker` và lấy ra node đầu tiên qua method `firstChild()`:
 
-![image](https://hackmd.io/_uploads/Bk1QECuTa.png)
+![](https://hackmd.io/_uploads/Bk1QECuTa.png)
 
 Sau đó duyệt qua từng attribute của node để filter:
 
-![image](https://hackmd.io/_uploads/ryveUjUpT.png)
+![](https://hackmd.io/_uploads/ryveUjUpT.png)
 
 Mục tiêu của bài này là clobbering `node.attributes` để nó trả về `undefined` để flow code không đi qua vòng lặp => bypass filter.
 
@@ -450,19 +450,19 @@ Payload:
 ```
 Ta trigger event `onfocus` dựa vào `id` với fragment.
 
-![image](https://hackmd.io/_uploads/rksfwRu6a.png)
+![](https://hackmd.io/_uploads/rksfwRu6a.png)
 
 Kết quả:
 
-![image](https://hackmd.io/_uploads/SkuBvRua6.png)
+![](https://hackmd.io/_uploads/SkuBvRua6.png)
 
 Giờ chỉ việc khai thác qua exploit server:
 
-![image](https://hackmd.io/_uploads/BJMCPAupa.png)
+![](https://hackmd.io/_uploads/BJMCPAupa.png)
 
 Okay.
 
-![image](https://hackmd.io/_uploads/rJq-OAdpT.png)
+![](https://hackmd.io/_uploads/rJq-OAdpT.png)
 
 
 
@@ -470,16 +470,16 @@ Okay.
 ## iframe element
 Khác với các tag khác, đối với `iframe`, khi truy cập từ `id` sẽ trả về element, còn khi truy cập từ `name` sẽ trả về window chứa `iframe` đó:
 
-![image](https://hackmd.io/_uploads/HJi_ettaT.png)
+![](https://hackmd.io/_uploads/HJi_ettaT.png)
 
 
 `iframe` có attribute `srcdoc` để tạo ra `#document` mới.
 
-![image](https://hackmd.io/_uploads/rkUhZFt6p.png)
+![](https://hackmd.io/_uploads/rkUhZFt6p.png)
 
 Từ đó ta dùng `name` từ `iframe` để lấy ra các element trong `srcdoc` để thực hiện DOM Clobbering (điều này tương tự với object `window` đã nói phía trên).
 
-![image](https://hackmd.io/_uploads/S1_f4YFaa.png)
+![](https://hackmd.io/_uploads/S1_f4YFaa.png)
 
 <details>
 <summary><b>bonus</b></summary>
