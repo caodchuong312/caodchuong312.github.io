@@ -23,7 +23,12 @@
 
   a {
     @apply text-indigo11 decoration-indigo6 underline-offset-4 transition-all hover:underline;
+    display: inline-block;     /* ⭐ BẮT BUỘC */
+    max-width: 100%;           /* ⭐ BẮT BUỘC */
+
     overflow-wrap: anywhere;
+    word-break: break-word;
+    white-space: normal;
   }
 
   /* a::after{
