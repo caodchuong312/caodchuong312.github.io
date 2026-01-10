@@ -36,6 +36,24 @@
 
   code {
     @apply border-slate4 bg-slate3 text-slate11 mx-0.5 rounded-lg border p-0.5 px-1 text-base;
+      :not(pre) > code {
+      @apply border-slate4 bg-slate3 text-slate11 mx-0.5 rounded-lg border px-1 text-base;
+      white-space: normal;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
+
+    /* CODE BLOCK */
+    pre {
+      @apply my-6 overflow-x-hidden rounded-xl bg-slate3 p-4;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    pre code {
+      @apply bg-transparent border-none p-0 text-sm;
+      white-space: inherit;
+    }
   }
 
   .code {
