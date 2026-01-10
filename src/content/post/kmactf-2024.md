@@ -129,9 +129,6 @@ Tại class `io.devme4f.springup.FileController` ứng với mapping `/file`:
 Có 3 endpoint:
 
 - `@GetMapping({"testUI"})`: giao diện upload file
-
-    ![](https://hackmd.io/_uploads/H1te5TtjA.png)
-
 - `@PostMapping({"uploadResource"})`: dùng để upload và xử lý file.
 - `@GetMapping({"downloadResource"})`: dùng để đọc file.
 
