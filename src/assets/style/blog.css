@@ -23,6 +23,7 @@
 
   a {
     @apply text-indigo11 decoration-indigo6 underline-offset-4 transition-all hover:underline;
+    overflow-wrap: anywhere;
   }
 
   /* a::after{
