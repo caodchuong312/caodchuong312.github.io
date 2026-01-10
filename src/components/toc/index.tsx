@@ -18,7 +18,7 @@ function Toc(props: TocProps) {
   return (
     !!dataSource.length && (
       <div className={className}>
-        <nav className="h-full w-full overflow-scroll">
+        <nav className="h-full w-full">
           <ul className={listClasses}>
             {dataSource
               .filter((item) => item.depth > 1)
