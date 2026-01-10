@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://caodchuong312.github.io',
   avatar: '/avatar.jpg',
   title: 'chuongcd\'s blog',
-  description: 'Learning Security, writing about life.',
+  description: 'learning security, writing about life.',
   lastModified: true,
   readTime: true,
   footer: {
