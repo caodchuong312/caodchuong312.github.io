@@ -1,21 +1,10 @@
 ---
-title: Writeup KMA CTF 2024
+title: Writeup KMACTF 2024 - Web
 description: KMA CTF tổ chức hằng năm
 tags:
   - Security
 pubDate: 2024-08-27
 ---
-
-# Writeup KMA CTF 2024 - Lần 1
-## Sanity Check
-
-![](https://hackmd.io/_uploads/BJi8z6Fs0.png)
-
-Check discord:
-
-![](https://hackmd.io/_uploads/HJ6dfTti0.png)
-
-> Flag: `KMACTF{KMACTF2024_h4s_b3gun}`
 
 ## pickleball
 
