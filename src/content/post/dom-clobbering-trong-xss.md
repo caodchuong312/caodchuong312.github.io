@@ -1,6 +1,6 @@
 ---
 title: Dom Clobbering trong XSS 
-description: This repo maintains revisons and translations to the list of 40 questions I ask myself each year and each decade.
+description: abc.
 tags:
   - Security
 pubDate: 2024-05-07
